@@ -305,6 +305,10 @@ let g:Lf_Gtagslabel = 'native-pygments'
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+nmap <Leader>t :LeaderfBufTag<CR>
+nmap <Leader>T :LeaderfTag<CR>
+nmap <Leader>m :LeaderfFunction<CR>
+nmap <Leader>M :LeaderfFunctionAll<CR>
 
 " ack
 if executable('rg')
@@ -349,7 +353,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 "endfunction
 "call InitPrjPath()
 
-set tags=./.tags;,.tags
+autocmd filetype c,cpp set tags=$LIBCXXTAGS,./.tags;,.tags
 let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = '/usr/local/share/gtags/gtags.conf'
 " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
