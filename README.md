@@ -257,6 +257,20 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
   :GoInstallBinaries
   ```
 
+- 修改 coc 配置
+
+  ```json
+  {
+     "suggest.enablePreview": true,
+     "suggest.noselect": false,
+     "suggest.minTriggerInputLength": 2,
+     "coc.preferences.hoverTarget": "preview",
+     "coc.preferences.previewAutoClose": false,
+     "diagnostic.displayByAle": true,
+     "java.home": "/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home"
+  }
+  ```
+
 ## 安装 llvm
 
 [下载 llvm_project](https://releases.llvm.org/download.html)
