@@ -473,3 +473,6 @@ autocmd FileType go nnoremap <C-\>c :GoReferrers<CR>
 
 " command
 command Run terminal %
+
+" 快速命令
+nmap <c-w>t :terminal<CR>
