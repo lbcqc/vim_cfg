@@ -2,7 +2,7 @@
 " 插件开始
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'codota/tabnine-vim'       " 人工智能补全
+"Plug 'codota/tabnine-vim'       " 人工智能补全
 Plug 'SirVer/ultisnips'			" 常用编码自动补全
 Plug 'honza/vim-snippets'
 Plug 'preservim/nerdtree' |
@@ -468,8 +468,9 @@ let g:go_highlight_generate_tags = 1
 " godef
 let g:godef_split=0 """左右打开新窗口的时候
 let g:godef_same_file_in_same_window=1 """""函数在同一个文件中时不需要打开新窗口""""
-autocmd FileType go nnoremap <buffer> <C-]> :call GodefUnderCursor()<cr>
+autocmd FileType go nnoremap <buffer> <C-]> :GoDef<cr>
 autocmd FileType go nnoremap <C-\>c :GoReferrers<CR>
+autocmd FileType go nnoremap gt :GoDefType<CR>
 
 " command
 command Run terminal %
