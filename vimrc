@@ -353,6 +353,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 "endfunction
 "call InitPrjPath()
 
+set tags=./.tags;,.tags
 autocmd filetype c,cpp set tags=$LIBCXXTAGS,./.tags;,.tags
 let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = '/usr/local/share/gtags/gtags.conf'
@@ -471,6 +472,8 @@ let g:godef_same_file_in_same_window=1 """""函数在同一个文件中时不需
 autocmd FileType go nnoremap <buffer> <C-]> :GoDef<cr>
 autocmd FileType go nnoremap <C-\>c :GoReferrers<CR>
 autocmd FileType go nnoremap gt :GoDefType<CR>
+autocmd FileType go nnoremap gR :GoRun<CR>
+autocmd FileType go nnoremap gT :GoTestFunc<CR>
 
 " command
 command Run terminal %
