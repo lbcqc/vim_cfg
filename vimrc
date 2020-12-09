@@ -363,9 +363,9 @@ let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 " 同时开启 ctags 和 gtags 支持：
 let g:gutentags_modules = []
-if executable('ctags')
-	let g:gutentags_modules += ['ctags']
-endif
+"if executable('ctags')
+"	let g:gutentags_modules += ['ctags']
+"endif
 if executable('gtags-cscope') && executable('gtags')
 	let g:gutentags_modules += ['gtags_cscope']
 endif
@@ -390,6 +390,8 @@ autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
 autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 
 " cscope 
+set cscopetag
+set csto=0
 let g:Gtags_Close_When_Single = 1
 let GtagsCscope_Auto_Load = 1
 let g:GtagsCscope_Quiet = 1
