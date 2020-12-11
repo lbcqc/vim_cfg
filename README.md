@@ -373,3 +373,5 @@ make install
 - :Gpull origin master 更新
 - :Gdiff 查看当前文件的修改
 - :Gblame 相当于 git blame
+- \<space\> j 快速向下跳转到指定行，easymotion插件，其实开启了相对行号后，上下的行号更好用，比如向下跳9行，9-
+- \<space\> h 快速向下跳转到指定行，easymotion插件，其实开启了相对行号后，上下的行号更好用，比如向上跳9行，9+
