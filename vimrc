@@ -363,9 +363,9 @@ let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 " 同时开启 ctags 和 gtags 支持：
 let g:gutentags_modules = []
-"if executable('ctags')
-"	let g:gutentags_modules += ['ctags']
-"endif
+if executable('ctags')
+	let g:gutentags_modules += ['ctags']
+endif
 if executable('gtags-cscope') && executable('gtags')
 	let g:gutentags_modules += ['gtags_cscope']
 endif
