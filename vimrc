@@ -10,27 +10,27 @@ Plug 'preservim/nerdtree' |
             \ Plug 'ryanoasis/vim-devicons'
 Plug 'vim-scripts/taglist.vim' 	" tag插件
 Plug 'majutsushi/tagbar'        " 可替换taglist，增加go语言支持
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tomasr/molokai'
-Plug 'altercation/vim-colors-solarized'
-Plug 'luochen1990/rainbow' 		" 彩虹括号
-Plug 'jiangmiao/auto-pairs'		" 匹配
+Plug 'vim-airline/vim-airline'  " 状态栏插件
+Plug 'vim-airline/vim-airline-themes'   " airline的主题
+Plug 'tomasr/molokai'           " vim主题
+Plug 'altercation/vim-colors-solarized' " vim主题
+Plug 'luochen1990/rainbow' 		  " 彩虹括号
+Plug 'jiangmiao/auto-pairs'		  " 匹配
 Plug 'vim-scripts/DoxygenToolkit.vim' 	" 自动注释
-Plug 'airblade/vim-gitgutter' 	" git侧边栏插件
-Plug 'tpope/vim-fugitive'		" git常用命令插件
+Plug 'airblade/vim-gitgutter'   " git侧边栏插件
+Plug 'tpope/vim-fugitive'		    " git常用命令插件
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh'  }
-Plug 'mileszs/ack.vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'dense-analysis/ale'
-Plug 'Chiel92/vim-autoformat'
-Plug 'vhdirk/vim-cmake'
+Plug 'mileszs/ack.vim'          " 遍历文本插件，类似grep
+Plug 'ludovicchabant/vim-gutentags'     " git操作插件
+Plug 'skywind3000/asyncrun.vim' " 异步执行命令插件
+Plug 'dense-analysis/ale'       " 语法错误检查插件
+Plug 'Chiel92/vim-autoformat'   " 自动格式化代码插件
+Plug 'vhdirk/vim-cmake'         " cmake插件，可执行cmake命令编译，配合make命令使用
 Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'iamcco/markdown-preview.vim'
+Plug 'iamcco/markdown-preview.vim'  " markdown预览插件
 Plug 'skywind3000/vim-preview'
-Plug 'whatot/gtags-cscope.vim'
-Plug 'easymotion/vim-easymotion'
+Plug 'whatot/gtags-cscope.vim'  " gtags插件
+Plug 'easymotion/vim-easymotion'    " 快速跳转行
 Plug 'puremourning/vimspector'      " 调试工具
 
 Plug 'fatih/vim-go', { 'tag': '*' } " go 主要插件
