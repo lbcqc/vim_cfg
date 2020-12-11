@@ -366,8 +366,8 @@ make install
 - ghp 预览当前光标所在的修改
 - ghs 添加当前光标所在的修改到 staged 处
 - :Gstatus 查看当前状态
-- 在:Gstaus环境下，aa 相对与add当前文件，+号也可
-- 在:Gstatus环境下，uu 相当与取消add当前文件，-号也可
+- 在:Gstaus环境下，a 相对与add当前文件，+号也可
+- 在:Gstatus环境下，u 相当与取消add当前文件，-号也可
 - 在:Gstatus环境下，cc 相当与commit
 - :Gpush origin master 提交
 - :Gpull origin master 更新
