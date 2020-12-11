@@ -259,6 +259,12 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 
 - 修改 coc 配置
 
+  执行 `CocConfig` 命令打开配置，复制下面的 `json` 填进去即可，注意 `java.home` 的地址要更改
+
+  ```bash
+  :CocConfig
+  ```
+
   ```json
   {
      "suggest.enablePreview": true,
@@ -273,7 +279,10 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 
 ## 安装 llvm
 
-[下载 llvm_project](https://releases.llvm.org/download.html)
+> 注意：devcloud上内存不足，无法源码编译，可找其他 centos7 机器编译好了的直接拷贝，更快更方便。
+> 其他机器 llvm 编译出来后可能依赖了更高版本的 libstdc++.so.6, 一起替换即可。
+
+[下载 llvm_project 源码](https://releases.llvm.org/download.html)
 
 创建 swap 分区
 
@@ -295,6 +304,72 @@ make -j8
 make install
 ```
 
-## 更新 gcc
+## 常见用法
 
-[下载地址](https://mirrors.ustc.edu.cn/gnu/gcc)
+### 打开工程
+
+- c/c++ 工程
+
+  - 如果是 `git` 工程，则直接在工程根目录直接打开即可
+  - 如果不是，则在工程根目录创建 `.project` 文件
+  - 打开工程之后 vim-gutentags 插件将会自动生成该工程的 gtags-cscope 索引到 `~/.cache/tags` 目录下
+  - 此时可跳转补全查找引用等信息
+
+  c/c++ 常用快捷键
+
+  - ctrl-\ c 查看函数变量被调用
+  - ctrl-\ d 查看函数变量定义
+  - ctrl-\ f 查找并打开该文件，通常为头文件
+  - ctrl-\ s 查找该符号, 该命令不如直接用ack grep整个工程好用
+  - ctrl-\ t 查找该文本，该命令不如直接用ack grep整个工程好用
+  - gd 查找局部变量定义，vim原生自带
+  - ctrl-] 查找函数变量定义
+
+  c/c++ 正确编译姿势1
+  - ctrl-z 暂时退出
+  - make
+  - fg 回到 vim
+
+  c/c++ 正确编译姿势2（前提是cmake初始化过一次，这样cmake命令才能找到build目录）
+  - :cmake 命令
+  - :make 命令
+
+- go 工程
+
+  常用快捷键如下，打开工程和 c/c++ 一样
+
+  - gR 运行该文件
+  - gT 运行当前测试函数
+  - gd 查找函数变量及 import 的文件定义
+  - gt 查找类型定义
+  - ctrl-] 和 gd 相同
+  - ctrl-\ c 查看函数变量被调用
+
+### 其他常用快捷键
+
+- ;a 打开ack遍历，后接要便利的字符串回车即可，效果类似grep
+- ;f 模糊查找工程下所有文件，leaderf 插件功能
+- ;b 模糊查找最近打开的 buffers 即文件，leaderf 插件功能
+- ;m 模糊找到当前文件的函数
+- ;M 模糊找到当前工程的所有函数
+- ;h 高亮当前字符串
+- shift-\* 高亮当前关键字（此处和字符串不一样），并跳转到下一个引用处
+- ;j 取消高亮
+- ;n 跳转到下一个高亮
+- ;p 跳转到上一个高亮
+- :Autoformat 自动格式化当前文件，支持c/c++ java go python cmake markdown cs css js json html等
+- ;s 关闭 or 打开 ale 语法检测，有时检测出一堆错误也很烦人
+- ;d 查看 ale 检测的错误细节
+- ghn 跳转到下一个修改，git插件
+- ghb 跳转到上一个修改，git插件
+- ghu 取消当前光标所在的修改
+- ghp 预览当前光标所在的修改
+- ghs 添加当前光标所在的修改到 staged 处
+- :Gstatus 查看当前状态
+- 在:Gstaus环境下，aa 相对与add当前文件，+号也可
+- 在:Gstatus环境下，uu 相当与取消add当前文件，-号也可
+- 在:Gstatus环境下，cc 相当与commit
+- :Gpush origin master 提交
+- :Gpull origin master 更新
+- :Gdiff 查看当前文件的修改
+- :Gblame 相当于 git blame
