@@ -298,7 +298,9 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 
   - HUMAN 格式快捷键
 
-    只需先按`F9`打断点，再按`F5`运行，输入可执行文件名，再输出运行参数即可。
+    只需先按`F9`打断点，再按`F5`运行，有两种模式：
+    1. `attach` 输入可执行文件名，再输入 `pid` 调试正在运行的程序。
+    2. `launch` 输入可执行文件名，再输出运行参数即可。
 
     `vimspector` 提供了鼠标点击的按钮，开启 `vim` 的鼠标功能即可使用。
 
@@ -307,7 +309,11 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
     :set mouse=   # 关闭
     ```
 
-    或者 `HUMAN` 格式快捷键，不用鼠标，如下：
+    如果要执行调试命令，输入命令`:VimspectorEval [cmd]`
+
+    调试结束后，可鼠标点击 `X` 退出，或者输入命令退出：`:VimspectorReset`
+
+    或者 `HUMAN` 格式快捷键如下：
 
 |Key|Function|
 |----|----|
@@ -326,7 +332,6 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 
 > 注意：devcloud上内存不足，无法源码编译，可找其他 centos7 机器编译好了的直接拷贝，更快更方便。
 > 其他机器 llvm 编译出来后可能依赖了更高版本的 libstdc++.so.6, 一起替换即可。
-
 
 [下载 llvm_project 源码](https://releases.llvm.org/download.html)
 
