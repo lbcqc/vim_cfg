@@ -31,6 +31,7 @@ Plug 'iamcco/markdown-preview.vim'  " markdown预览插件
 Plug 'skywind3000/vim-preview'
 Plug 'whatot/gtags-cscope.vim'  " gtags插件
 Plug 'easymotion/vim-easymotion'    " 快速跳转行
+Plug 'scrooloose/nerdcommenter'     " 注释工具
 Plug 'puremourning/vimspector'      " 调试工具
 
 Plug 'fatih/vim-go', { 'tag': '*' } " go 主要插件
@@ -228,6 +229,27 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+"nerdcommenter 
+"add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" python 自动的会多加一个空格
+au FileType python let g:NERDSpaceDelims = 0
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+"
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
 
 " airline
 "let g:airline#extensions#tabline#enabled = 1
@@ -493,11 +515,12 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_generate_tags = 1
 " godef
-let g:godef_split=0 """左右打开新窗口的时候
-let g:godef_same_file_in_same_window=1 """""函数在同一个文件中时不需要打开新窗口""""
+let g:godef_split=0 " 左右打开新窗口的时候
+let g:godef_same_file_in_same_window=1 " 函数在同一个文件中时不需要打开新窗口
 autocmd FileType go nnoremap <buffer> <C-]> :GoDef<cr>
 autocmd FileType go nnoremap <C-\>c :GoReferrers<CR>
-autocmd FileType go nnoremap gR :GoRun<CR>
+"autocmd FileType go nnoremap gR :GoRun<CR>
+autocmd FileType go nnoremap gY :GoRun<CR> " 运行，R为vim原生替换按键，避免冲突
 autocmd FileType go nnoremap gT :GoTestFunc<CR>
 
 " command

@@ -398,3 +398,4 @@ make install
 - :Gblame 相当于 git blame
 - \<space\> j 快速向下跳转到指定行，easymotion插件，其实开启了相对行号后，上下的行号更好用，比如向下跳9行，9-
 - \<space\> h 快速向下跳转到指定行，easymotion插件，其实开启了相对行号后，上下的行号更好用，比如向上跳9行，9+
+- ;c<space> 注释或者取消注释，可使用v选择多行
