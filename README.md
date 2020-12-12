@@ -10,10 +10,54 @@
 快速编译运行。
 
 最终效果：
-![vim_edit_show](./vim_edit_show.jpg)
+![vim_edit_show](https://github.com/lbcqc/vim_cfg/blob/master/vim_edit_show.jpg)
 
 DEBUG效果:
-![vim_debug_show](./vim_debug_show.jpg)
+![vim_debug_show](https://github.com/lbcqc/vim_cfg/blob/master/vim_debug_show.jpg)
+
+## oh-my-zsh
+
+vim 使用场景常和命令行打交道，使用 zsh 替换 bash 提供命令补全提示等功能。
+
+- 使用 curl 安装
+
+  ```bash
+  sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  ```
+
+- 或者使用 wget 安装
+
+  ```bash
+  sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+  ```
+
+- 修改主题
+
+  在配置文件 `~/.zshrc` 中找到 `ZSH_THEME` 关键字修改。
+
+  可选择的主题参考<https://github.com/ohmyzsh/ohmyzsh/wiki/Themes>
+
+  推荐极简主题 `simple`
+
+- 安装插件
+
+  在配置文件 `~/.zshrc` 中修改 `plugins`
+
+  ```bash
+  plugins=(
+    git
+    z
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+  )
+  ```
+
+  `git` 和 `z` 插件是自带的，但是另外两个插件需要手动安装，如下：
+
+  ```bash
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  ```
 
 ## tmux
 
