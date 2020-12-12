@@ -293,7 +293,7 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
     ```bash
     cp ~/vim_cfg/cpp.lldb.vimspector.json .vimspector.json  # 在macos调试cpp工程
     cp ~/vim_cfg/cpp.gdb.vimspector.json .vimspector.json   # 在linux调试cpp工程
-    cp ~/vim_cfg/go.vimspector.json .vimspector.json        # 调试go工程
+    cp ~/vim_cfg/go.dlv.vimspector.json .vimspector.json    # 调试go工程
     ```
 
   - HUMAN 格式快捷键
