@@ -41,6 +41,8 @@ vim 使用场景常和命令行打交道，使用 zsh 替换 bash 提供命令�
 
   也可选择本工程自定义的 `arrow-apple` 主题，安装该主题如下：
 
+  ![image](./arrow-apple.png)
+
   ```bash
   cp -f ~/vim_cfg/arrow-apple.zsh-theme ~/.oh-my-zsh/themes/arrow-apple.zsh-theme
   ```
