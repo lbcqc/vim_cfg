@@ -6,7 +6,7 @@
         "request": "launch",
         "program": "${fileDirname}",
         "mode": "debug",
-        "dlvToolPath": "$HOME/go/bin/dlv"
+        "dlvToolPath": "$GOPATH/bin/dlv"
       }
     }
   }
