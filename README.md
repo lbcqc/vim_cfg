@@ -324,6 +324,8 @@ make install
   - ctrl-\ t 查找该文本，该命令不如直接用ack grep整个工程好用
   - gd 查找局部变量定义，vim原生自带
   - ctrl-] 查找函数变量定义
+  - ctrl-o 返回上一个浏览位置，vim原生自带，通常用在查看定义后返回原处
+  - ctrl-i 返回下一个浏览绘制，vim原声自带
 
   c/c++ 正确编译姿势1
   - ctrl-z 暂时退出
@@ -344,6 +346,8 @@ make install
   - gt 查找类型定义
   - ctrl-] 和 gd 相同
   - ctrl-\ c 查看函数变量被调用
+  - ctrl-o 返回上一个浏览位置，vim原生自带，通常用在查看定义后返回原处
+  - ctrl-i 返回下一个浏览绘制，vim原声自带
 
 ### 其他常用快捷键
 
@@ -362,8 +366,10 @@ make install
 - ;h 高亮当前字符串
 - shift-\* 高亮当前关键字（此处和字符串不一样），并跳转到下一个引用处
 - ;j 取消高亮
-- ;n 跳转到下一个高亮
-- ;p 跳转到上一个高亮
+- n 跳转到下一个高亮，vim原生自带
+- N 跳转到上一个高亮，vim原声自带
+- ;n 跳转到下一个quickfix窗口列表项，在ack，cs等查找引用命令后，查找处很多项，可使用这个快捷键
+- ;p 跳转到上一个quickfix窗口列表项，在ack，cs等查找引用命令后，查找处很多项，可使用这个快捷键
 - :Autoformat 自动格式化当前文件，支持c/c++ java go python cmake markdown cs css js json html等
 - ;s 关闭 or 打开 ale 语法检测，有时检测出一堆错误也很烦人
 - ;d 查看 ale 检测的错误细节
