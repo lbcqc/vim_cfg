@@ -10,10 +10,10 @@
 快速编译运行。
 
 最终效果：
-![vim_edit_show](https://github.com/lbcqc/vim_cfg/blob/master/vim_edit_show.jpg)
+![image](./vim_edit_show.jpg)
 
 DEBUG效果:
-![vim_debug_show](https://github.com/lbcqc/vim_cfg/blob/master/vim_debug_show.jpg)
+![image](./vim_debug_show.jpg)
 
 ## oh-my-zsh
 
