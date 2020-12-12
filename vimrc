@@ -2,9 +2,9 @@
 " 插件开始
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-"Plug 'codota/tabnine-vim'       " 人工智能补全
-Plug 'SirVer/ultisnips'			" 常用编码自动补全
-Plug 'honza/vim-snippets'
+"Plug 'codota/tabnine-vim'      " 人工智能补全
+"Plug 'SirVer/ultisnips'			    " 常用编码自动补全
+Plug 'honza/vim-snippets'       " 常用编码自动补全，可自定义
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin' |
             \ Plug 'ryanoasis/vim-devicons'
@@ -335,6 +335,30 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-a> coc#refresh()
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+ 
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " vim-gutentags 
 "function! InitPrjPath()
@@ -473,7 +497,6 @@ let g:godef_split=0 """左右打开新窗口的时候
 let g:godef_same_file_in_same_window=1 """""函数在同一个文件中时不需要打开新窗口""""
 autocmd FileType go nnoremap <buffer> <C-]> :GoDef<cr>
 autocmd FileType go nnoremap <C-\>c :GoReferrers<CR>
-autocmd FileType go nnoremap gt :GoDefType<CR>
 autocmd FileType go nnoremap gR :GoRun<CR>
 autocmd FileType go nnoremap gT :GoTestFunc<CR>
 
