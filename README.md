@@ -347,6 +347,11 @@ make install
 
 ### 其他常用快捷键
 
+- nt 打开或关闭nerdtree目录
+- nf 打开nerdtree目录并且跳转到当前文件
+- tb 打开或关闭当前文件函数变量等符号信息列表
+- ctrl-w [hjkl] 跳转到左右上下窗口，vim原生自带
+- ctrl-w q 关闭当前窗口
 - ;a 打开ack遍历，后接要便利的字符串回车即可，效果类似grep
 - ;f 模糊查找工程下所有文件，leaderf 插件功能
 - ;b 模糊查找最近打开的 buffers 即文件，leaderf 插件功能
