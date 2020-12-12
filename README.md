@@ -1,43 +1,58 @@
 # VIM 配置
 
-记录 VIM 的配置过程。
+记录 VIM 的配置过程，目标在于将vim打造成适用于c/c++，go，python，java等语言的编辑开发环境。
+
+该文档主要以 centos7 为例，由于 yum 源过旧，很多时候需要源码安装，更需要记录下来安装过程。
+
+如果是 macos 则更为简单，能 brew 安装的直接 brew 安装即可，通常都接近最新版。
+
+其应具备如下主要功能：补全，跳转，查找，格式化，语法检测错误，快速注释，git支持，debug调试，
+快速编译运行。
+
+最终效果：
+![vim_edit_show](./vim_edit_show.jpg)
+
+DEBUG效果:
+![vim_debug_show](./vim_debug_show.jpg)
 
 ## tmux
 
+tmux配合vim使用事半功倍，此处不安装无影响，可自行选择。
+
 - 安装 tmux
 
-```bash
-yum install -y tmux
-```
+  ```bash
+  yum install -y tmux
+  ```
 
 - 安装插件管理 tpm
 
-使用 git 安装
+  使用 git 安装
 
-```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
+  ```bash
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ```
 
-修改配置 ~/.tmux.conf
+  修改配置 ~/.tmux.conf
 
-```bash
-# List of plugins
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'seebi/tmux-colors-solarized'
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
-```
+  ```bash
+  # List of plugins
+  set -g @plugin 'tmux-plugins/tpm'
+  set -g @plugin 'tmux-plugins/tmux-sensible'
+  set -g @plugin 'seebi/tmux-colors-solarized'
+  # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+  run '~/.tmux/plugins/tpm/tpm'
+  ```
 
-更新 tmux 配置
+  更新 tmux 配置
 
-```bash
-tmux source ~/.tmux.conf
-```
+  ```bash
+  tmux source ~/.tmux.conf
+  ```
 
-进入tmux任意会话：`PREFIX + I` 安装插件
+  进入tmux任意会话：`PREFIX + I` 安装插件
 
-- xshell(windows) or iterms2(macos)
+## xshell(windows) or iterms2(macos)
 
 更改颜色主题为 [solarized](https://gist.github.com/clyfish/1505019)
 
@@ -451,3 +466,6 @@ make install
 - za 折叠 or 打开当前代码块，vim 原生快捷方式
 - zM 折叠所有代码块，vim 原生快捷方式
 - zR 展开所有代码块，vim 原生快捷方式
+- :PlugInstall 安装插件，只需在vimrc上的Plug列表中加入 gitub 地址即可
+- :PlugClean 卸载插件，将对应的 Plug 注释掉即可
+- :PlugUpdate 更新插件
