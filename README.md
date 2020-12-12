@@ -469,3 +469,5 @@ make install
 - :PlugInstall 安装插件，只需在vimrc上的Plug列表中加入 gitub 地址即可
 - :PlugClean 卸载插件，将对应的 Plug 注释掉即可
 - :PlugUpdate 更新插件
+- :MarkdownPreview 预览markdown文件，该命令需要在图型界面使用，如果远程linux本身有图形界面有浏览器，
+xshell有插件可以打开远程浏览器，则也可以使用该命令。
