@@ -12,7 +12,7 @@
 				"environment": [],
 				"externalConsole": true,
 				"stopAtEntry": true,
-				"MIMode": "lldb",
+				"MIMode": "gdb",
 				"logging": {
 					"engineLogging": false
 				}
@@ -25,7 +25,7 @@
 				"type": "cppdbg",
 				"request": "attach",
 				"program": "${fileDirname}/${ProgramName}",
-				"MIMode": "lldb"
+				"MIMode": "gdb"
 			}
 		}
 	}
