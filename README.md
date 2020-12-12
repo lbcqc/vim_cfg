@@ -35,11 +35,13 @@ run '~/.tmux/plugins/tpm/tpm'
 tmux source ~/.tmux.conf
 ```
 
-PREFIX + I 安装插件
+进入tmux任意会话：`PREFIX + I` 安装插件
 
-- xshell
+- xshell(windows) or iterms2(macos)
 
 更改颜色主题为 [solarized](https://gist.github.com/clyfish/1505019)
+
+[安装`Hack Nerd Font Mono`字体，这样显示一些状态栏，及 `NERDTree` 的状态图标才不会乱码](https://github.com/ryanoasis/nerd-fonts)
 
 ## 安装 vim8
 
@@ -229,7 +231,7 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 
 ## 安装插件
 
-- 安装 vim-plug 插件
+- 安装 vim-plug 插件管理器
 
   ```bash
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -382,6 +384,7 @@ make install
 - 在:Gstaus环境下，a 相对与add当前文件，+号也可
 - 在:Gstatus环境下，u 相当与取消add当前文件，-号也可
 - 在:Gstatus环境下，cc 相当与commit
+- 在:Gstatus环境下，dd 相当与git diff，查看当前文件的修改
 - :Gpush origin master 提交
 - :Gpull origin master 更新
 - :Gdiff 查看当前文件的修改
