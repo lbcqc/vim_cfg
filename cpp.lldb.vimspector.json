@@ -1,0 +1,22 @@
+{
+  "configurations": {
+    "cpp:launch": {
+      "adapter": "vscode-cpptools",
+      "configuration": {
+        "name": "cpp",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${fileDirname}/${process}",
+        "args": ["*${ProgramArgs}"],
+        "cwd": "${workspaceRoot}",
+        "environment": [],
+        "externalConsole": false,
+        "stopAtEntry": true,
+        "MIMode": "lldb",
+        "logging": {
+          "engineLogging": true
+        }
+      }
+    }
+  }
+}

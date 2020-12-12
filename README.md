@@ -279,10 +279,54 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
   }
   ```
 
+- 安装vimspector
+
+  - 该插件是用来调试 `c/cpp`, `go`, `python`, `java`, `shell`等语言的。
+
+    ```bash
+    cd ~/.vim/plugged/vimspector/
+    ./install_gadget.py --all    # 安装所有语言调试支持，如果只需要 c/c++ 则为 --enable-c，go 则为 --enable-go
+    ```
+
+  - 拷贝调试配置文件到工程目录
+
+    ```bash
+    cp ~/vim_cfg/cpp.lldb.vimspector.json .vimspector.json  # 在macos调试cpp工程
+    cp ~/vim_cfg/cpp.gdb.vimspector.json .vimspector.json   # 在linux调试cpp工程
+    cp ~/vim_cfg/go.vimspector.json .vimspector.json        # 调试go工程
+    ```
+
+  - HUMAN 格式快捷键
+
+    只需先按`F9`打断点，再按`F5`运行，输入可执行文件名，再输出运行参数即可。
+
+    `vimspector` 提供了鼠标点击的按钮，开启 `vim` 的鼠标功能即可使用。
+
+    ```bash
+    :set mouse=a  # 开启
+    :set mouse=   # 关闭
+    ```
+
+    或者 `HUMAN` 格式快捷键，不用鼠标，如下：
+
+|Key|Function|
+|----|----|
+|F5| When debugging, continue. Otherwise start debugging.|
+|F3| Stop debugging.|
+|F4| Restart debugging with the same configuration.|
+|F6| Pause debugee.|
+|F9| Toggle line breakpoint on the current line.|
+|\<leader\>F9| Toggle conditional line breakpoint on the current line.|
+|F8| Add a function breakpoint for the expression under cursor.|
+|F10| Step Over|
+|F11| Step Into|
+|F12| Step out of current function scope.|
+
 ## 安装 llvm
 
 > 注意：devcloud上内存不足，无法源码编译，可找其他 centos7 机器编译好了的直接拷贝，更快更方便。
 > 其他机器 llvm 编译出来后可能依赖了更高版本的 libstdc++.so.6, 一起替换即可。
+
 
 [下载 llvm_project 源码](https://releases.llvm.org/download.html)
 
