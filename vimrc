@@ -399,7 +399,6 @@ endfunction
 "call InitPrjPath()
 
 set tags=./.tags;,.tags
-autocmd filetype c,cpp set tags=$LIBCXXTAGS,./.tags;,.tags
 let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = '/usr/local/share/gtags/gtags.conf'
 " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
@@ -435,7 +434,7 @@ autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
 autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 
 " cscope 
-set cscopetag
+set cscopetag " 使用cscope代替ctags
 set csto=0
 let g:Gtags_Close_When_Single = 1
 let GtagsCscope_Auto_Load = 1
