@@ -348,7 +348,7 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 
 - 安装vimspector
 
-  - 该插件是用来调试 `c/cpp`, `go`, `python`, `java`, `shell`等语言的。
+  - 该插件是用来调试 `c/cpp`, `go`, `python`, `java`, `bash`，`lua` 等语言的。
 
     ```bash
     cd ~/.vim/plugged/vimspector/
@@ -361,11 +361,17 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
     cp ~/vim_cfg/cpp.lldb.vimspector.json .vimspector.json  # 在macos调试cpp工程
     cp ~/vim_cfg/cpp.gdb.vimspector.json .vimspector.json   # 在linux调试cpp工程
     cp ~/vim_cfg/go.dlv.vimspector.json .vimspector.json    # 调试go工程
+    cp ~/vim_cfg/python.vimspector.json .vimspector.json    # 调试python工程
+    cp ~/vim_cfg/java.vimspector.json .vimspector.json      # 调试java工程
+    cp ~/vim_cfg/bash.vimspector.json .vimspector.json      # 调试bash工程
+    cp ~/vim_cfg/lua.vimspector.json .vimspector.json       # 调试lua工程
     ```
 
-  - HUMAN 格式快捷键
+  - Debug
 
-    只需先按`F9`打断点，再按`F5`运行，有两种模式：
+    如果是编译型语言，比如`java` `c-cpp`，则需要加 `-g` 参数编译。
+
+    先按`F9`打断点，再按`F5`运行，通常有两种模式：
     1. `attach` 输入可执行文件名，再输入 `pid` 调试正在运行的程序。
     2. `launch` 输入可执行文件名，再输出运行参数即可。
 
@@ -376,11 +382,25 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
     :set mouse=   # 关闭
     ```
 
-    如果要执行调试命令，输入命令`:VimspectorEval [cmd]`
+    如果要执行调试命令，输入命令`:VimspectorEval [cmd]`，或者直接在 `console` 控制台输入
+    命令回车执行，不同的语言调试器提供不同程度的支持。
 
-    调试结束后，可鼠标点击 `X` 退出，或者输入命令退出：`:VimspectorReset`
+    调试结束后，可鼠标点击 `X` 退出，或者输入命令退出：`:VimspectorReset`，
+    vimrc中已将`F2`绑定到`:VimspectorReset`，避免每次都输命令。
 
-    或者 `HUMAN` 格式快捷键如下：
+  - java
+
+    `java` 不同于其他语言，其调试通过 `coc-java-debug` 插件启动，并且只能 `attach`，
+    需要先使用 `debug` 模式运行程序在`5005`端口，如下：
+
+    ```bash
+    java -g Test.java
+    java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=5005,suspend=y Test
+    ```
+
+    然后其他都一样了，`F9` 打断点，`F5` 启动。
+
+  - `HUMAN` 格式快捷键
 
 |Key|Function|
 |----|----|

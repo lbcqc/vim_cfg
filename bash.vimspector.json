@@ -1,0 +1,18 @@
+{
+  "configurations": {
+    "bash: Launch": {
+      "adapter": "vscode-bash",
+      "configuration": {
+        "name": "bash: Launch",
+        "type": "bash",
+        "request": "launch",
+        "cwd": "${workspaceRoot}",
+        "stopOnEntry": true,
+        "console": "externalTerminal",
+        "debugOptions": [],
+        "program": "${fileBasename}"
+      }
+    }
+
+  }
+}

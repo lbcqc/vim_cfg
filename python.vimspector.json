@@ -1,0 +1,19 @@
+{
+  "configurations": {
+    "python: Launch": {
+      "adapter": "debugpy",
+      "configuration": {
+        "name": "python: Launch",
+        "type": "python",
+        "request": "launch",
+        "cwd": "${workspaceRoot}",
+        "python": "/usr/local/bin/python3",
+        "stopOnEntry": true,
+        "console": "externalTerminal",
+        "debugOptions": [],
+        "program": "${fileBasename}"
+      }
+    }
+
+  }
+}

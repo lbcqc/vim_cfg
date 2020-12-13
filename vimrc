@@ -3,7 +3,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'codota/tabnine-vim'      " 人工智能补全
-"Plug 'SirVer/ultisnips'			    " 常用编码自动补全
 Plug 'honza/vim-snippets'       " 常用编码自动补全，可自定义
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin' |
@@ -342,8 +341,8 @@ map <Leader>a :Ack!<Space>
 
 " coc
 let g:coc_global_extensions = ['coc-tsserver','coc-html','coc-css', 'coc-json',
-            \ 'coc-java','coc-python','coc-flutter', 'coc-cmake','coc-clangd',
-            \ 'coc-emmet','coc-snippets','coc-xml','coc-yaml','coc-go',
+            \ 'coc-java','coc-java-debug','coc-python','coc-flutter', 'coc-cmake',
+            \ 'coc-clangd','coc-emmet','coc-snippets','coc-xml','coc-yaml','coc-go',
             \ 'coc-markdownlint','coc-highlight',"coc-sh","coc-bookmark"]
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -498,6 +497,9 @@ let g:formatters_java = ['astyle_java']
 
 " vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
+" java比较特殊，通过coc-java-debug启动，设置为F5，和其他类型统一
+autocmd FileType java nnoremap <F5> :CocCommand java.debug.vimspector.start<cr>
+nnoremap <F2> :VimspectorReset<cr>
 
 " vim-go
 "let g:go_gopls_enabled = 0 " 取消底部告警vim-go: initialized gopls
