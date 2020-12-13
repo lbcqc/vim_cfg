@@ -88,6 +88,14 @@ tmux配合vim使用事半功倍，此处不安装无影响，可自行选择。
   修改配置 ~/.tmux.conf
 
   ```bash
+  # 解决xshell下tmux与vim颜色冲突问题，
+  # 在vimrc中添加set t_Co=256
+  # 在/etc/profile中添加如下三个指令：
+  # export TERM="screen-256color"
+  # export LANG="en_US.UTF-8"
+  # export LC_ALL="en_US.UTF-8"
+  set -g default-terminal "screen-256color"
+
   # List of plugins
   set -g @plugin 'tmux-plugins/tpm'
   set -g @plugin 'tmux-plugins/tmux-sensible'
@@ -106,9 +114,11 @@ tmux配合vim使用事半功倍，此处不安装无影响，可自行选择。
 
 ## xshell(windows) or iterms2(macos)
 
-更改颜色主题为 [solarized](https://gist.github.com/clyfish/1505019)
+更改颜色主题为 [solarized](https://gist.github.com/clyfish/1505019)，不建议 xshell 使用 solarized 主题，很丑，自带的 xterm 主题更适合 xshell。
 
-[安装`Hack Nerd Font Mono`字体，这样显示一些状态栏，及 `NERDTree` 的状态图标才不会乱码](https://github.com/ryanoasis/nerd-fonts)
+安装 `Hack Nerd Font Mono` 字体，这样显示一些状态栏，及 `NERDTree` 的状态图标才不会乱码，官网：<https://github.com/ryanoasis/nerd-fonts>
+
+或者直接使用本工程中的：[Hack Nerd Font Mono](./Hack_Regular_Nerd_Font_Complete_Mono.ttf)
 
 ## 安装 vim8
 

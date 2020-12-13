@@ -62,7 +62,6 @@ set nobackup
 
 " 距离底部保留5行
 set scrolloff=5
-
 " 预览查找结果"
 set incsearch
 set ignorecase
@@ -279,7 +278,7 @@ let g:airline_symbols.dirty='⚡'
 "let g:airline_theme="luna"
 let g:airline_theme="bubblegum"
 "set ambiwidth=double
-"set t_Co=256 "xshell 下显示颜色
+set t_Co=256 "xshell 下显示颜色
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
 
