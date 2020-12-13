@@ -162,7 +162,7 @@ endif
 " 插件NerdTree
 map <silent>nt :NERDTreeToggle<CR><c-l>
 map <silent>nf :NERDTreeFind<CR><c-l>
-"autocmd vimenter * if !argc()|NERDTree|endif "打开vim时如果没有文件自动打开NERDTree
+autocmd vimenter * if !argc()|NERDTree|endif "打开vim时如果没有文件自动打开NERDTree
 let NERDTreeShowHidden=1
 
 " 插件nerdtree-git-plugin
