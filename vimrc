@@ -2,16 +2,13 @@
 " 插件开始
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-"Plug 'codota/tabnine-vim'      " 人工智能补全
 Plug 'honza/vim-snippets'       " 常用编码自动补全，可自定义
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin' |
             \ Plug 'ryanoasis/vim-devicons'
-Plug 'vim-scripts/taglist.vim' 	" tag插件
 Plug 'majutsushi/tagbar'        " 可替换taglist，增加go语言支持
 Plug 'vim-airline/vim-airline'  " 状态栏插件
 Plug 'vim-airline/vim-airline-themes'   " airline的主题
-Plug 'tomasr/molokai'           " vim主题
 Plug 'altercation/vim-colors-solarized' " vim主题
 Plug 'luochen1990/rainbow' 		  " 彩虹括号
 Plug 'jiangmiao/auto-pairs'		  " 匹配
@@ -24,14 +21,16 @@ Plug 'ludovicchabant/vim-gutentags'     " git操作插件
 Plug 'skywind3000/asyncrun.vim' " 异步执行命令插件
 Plug 'dense-analysis/ale'       " 语法错误检查插件
 Plug 'Chiel92/vim-autoformat'   " 自动格式化代码插件
+Plug 'sbdchd/neoformat'
 Plug 'vhdirk/vim-cmake'         " cmake插件，可执行cmake命令编译，配合make命令使用
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'  " markdown预览插件
 Plug 'skywind3000/vim-preview'
 Plug 'whatot/gtags-cscope.vim'  " gtags插件
-Plug 'easymotion/vim-easymotion'    " 快速跳转行
+Plug 'Lokaltog/vim-easymotion'
 Plug 'scrooloose/nerdcommenter'     " 注释工具
 Plug 'puremourning/vimspector'      " 调试工具
+Plug 'mhinz/vim-startify'           " 开始菜单
 
 Plug 'fatih/vim-go', { 'tag': '*' } " go 主要插件
 Plug 'dgryski/vim-godef'            " go 中的代码追踪，输入 gd 就可以自动跳转
@@ -161,7 +160,7 @@ endif
 " 插件NerdTree
 map <silent>nt :NERDTreeToggle<CR><c-l>
 map <silent>nf :NERDTreeFind<CR><c-l>
-autocmd vimenter * if !argc()|NERDTree|endif "打开vim时如果没有文件自动打开NERDTree
+" autocmd vimenter * if !argc()|NERDTree|endif "打开vim时如果没有文件自动打开NERDTree
 let NERDTreeShowHidden=1
 
 " 插件nerdtree-git-plugin
@@ -191,8 +190,15 @@ let Tlist_File_Fold_Auto_Close=1	"同时显示多个文件中的tag时，可使t
 map <silent>tl :TlistToggle<cr>
 
 " easymotion
-map <space> <Plug>(easymotion-prefix)
-
+map f <Plug>(easymotion-prefix)
+map ff <Plug>(easymotion-f)
+map fs <Plug>(easymotion-s)
+map fl <Plug>(easymotion-lineforward)
+map fj <Plug>(easymotion-j)
+map fk <Plug>(easymotion-k)
+map fh <Plug>(easymotion-linebackward)
+" 忽略大小写
+let g:EasyMotion_smartcase = 1
 
 " go language
 let s:tlist_def_go_settings = 'go;g:enum;s:struct;u:union;t:type;' . 
