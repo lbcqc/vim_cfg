@@ -30,6 +30,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'scrooloose/nerdcommenter'     " 注释工具
 Plug 'puremourning/vimspector'      " 调试工具
 Plug 'mhinz/vim-startify'           " 开始菜单
+" Plug 'octol/vim-cpp-enhanced-highlight' " c++高亮支持
 
 Plug 'fatih/vim-go', { 'tag': '*' } " go 主要插件
 Plug 'dgryski/vim-godef'            " go 中的代码追踪，输入 gd 就可以自动跳转
@@ -189,7 +190,7 @@ let Tlist_File_Fold_Auto_Close=1	"同时显示多个文件中的tag时，可使t
 map <silent>tl :TlistToggle<cr>
 
 " easymotion
-map f <Plug>(easymotion-prefix)
+" map f <Plug>(easymotion-prefix)
 map ff <Plug>(easymotion-f)
 map fs <Plug>(easymotion-s)
 map fl <Plug>(easymotion-lineforward)
