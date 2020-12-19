@@ -5,6 +5,7 @@
       "configuration": {
         "request": "launch",
         "program": "${fileDirname}",
+        "args": "",
         "mode": "debug",
         "dlvToolPath": "$GOPATH/bin/dlv"
       }
