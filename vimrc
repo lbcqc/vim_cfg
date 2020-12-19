@@ -20,8 +20,7 @@ Plug 'mileszs/ack.vim'          " 遍历文本插件，类似grep
 Plug 'ludovicchabant/vim-gutentags'     " git操作插件
 Plug 'skywind3000/asyncrun.vim' " 异步执行命令插件
 Plug 'dense-analysis/ale'       " 语法错误检查插件
-Plug 'Chiel92/vim-autoformat'   " 自动格式化代码插件
-Plug 'sbdchd/neoformat'
+Plug 'sbdchd/neoformat'         " 自动格式化代码插件
 Plug 'vhdirk/vim-cmake'         " cmake插件，可执行cmake命令编译，配合make命令使用
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'  " markdown预览插件
@@ -490,14 +489,12 @@ let g:ale_linters = {
 "打开文件时不进行检查
 "let g:ale_lint_on_enter = 0
 
-" Autoformat
-let g:formatdef_clangformat_google = '"clang-format -style google --sort-includes -"'
-let g:formatdef_astyle_kr = '"astyle --style=kr"'
-let g:formatdef_astyle_java = '"astyle --style=java"'
-
-let g:formatters_cpp = ['clangformat_google']
-let g:formatters_c = ['clangformat_google']
-let g:formatters_java = ['astyle_java']
+" Neoformat
+let g:neoformat_cpp_kr = {
+  \ 'exe': 'astyle',
+  \ 'args': ['--style=kr'],
+  \ 'stdin': 1
+  \}
 
 " vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
