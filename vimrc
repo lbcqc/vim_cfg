@@ -20,7 +20,7 @@ Plug 'mileszs/ack.vim'          " 遍历文本插件，类似grep
 Plug 'ludovicchabant/vim-gutentags'     " git操作插件
 Plug 'skywind3000/asyncrun.vim' " 异步执行命令插件
 Plug 'dense-analysis/ale'       " 语法错误检查插件
-Plug 'sbdchd/neoformat'         " 自动格式化代码插件
+Plug 'Chiel92/vim-autoformat'   " 自动格式化代码插件
 Plug 'vhdirk/vim-cmake'         " cmake插件，可执行cmake命令编译，配合make命令使用
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'  " markdown预览插件
@@ -37,11 +37,13 @@ Plug 'dgryski/vim-godef'            " go 中的代码追踪，输入 gd 就可�
 Plug 'jstemmer/gotags'              " 配合tagbar展示go变量
 call plug#end()
 " 插件结束
-"
+
 " 设置<Leader>为','
 let mapleader=';'
+
 " 显示相对行号
 set relativenumber
+
 " 主题
 " molokai
 "let g:molokai_original = 1
@@ -78,20 +80,29 @@ set ruler
 " 显示括号匹配
 set showmatch
 
+" 显示设置
+" support gnu syntaxt
+let c_gnu = 1
 
-" 继承前一行的缩进方式，适用于多行注释'
+" show error for mixed tab-space
+let c_space_errors = 1
+"let c_no_tab_space_error = 1
+
+" don't show gcc statement expression ({x, y;}) as error
+let c_no_curly_error = 1
+
+" 缩进设置
 set autoindent
 set smartindent
-" 设置Tab长度为2空格
-set tabstop=2
-" 设置自动缩进长度为2空格, 该选项尤其对json,xml等自动格式化有用
-set shiftwidth=2
-" 根据其它地方缩减的空格数来确定tab到底为多少个空格
-set smarttab
-" 设置空格替代TAB
-set expandtab
-" 设置baskspace按键能正常删除
+set cindent
+set cinoptions=g1,h1,i4,l1,m1,N-s,t0,W4,+2s,:2,(0
+
+" 输入设置，设置自动缩进长度为2空格, 该选项尤其对json,xml等自动格式化有用
 set backspace=indent,eol,start
+set tabstop=2
+set shiftwidth=2
+set smarttab
+set expandtab
 
 
 " 设置编码'
@@ -490,12 +501,14 @@ let g:ale_linters = {
 "打开文件时不进行检查
 "let g:ale_lint_on_enter = 0
 
-" Neoformat
-let g:neoformat_cpp_kr = {
-  \ 'exe': 'astyle',
-  \ 'args': ['--style=kr'],
-  \ 'stdin': 1
-  \}
+" Autoformat
+let g:formatdef_clangformat_google = '"clang-format -style google --sort-includes -"'
+let g:formatdef_astyle_kr = '"astyle --style=kr"'
+let g:formatdef_astyle_java = '"astyle --style=java"'
+
+let g:formatters_cpp = ['clangformat_google']
+let g:formatters_c = ['clangformat_google']
+let g:formatters_java = ['astyle_java']
 
 " vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
@@ -532,3 +545,13 @@ command Run terminal %
 
 " 快速命令
 nmap <c-w>t :terminal<CR>
+
+" 保存时自动删除行尾多余的空白字符
+function! RemoveTrailingSpace()
+    if $VIM_HATE_SPACE_ERRORS != '0'
+        normal m`
+        silent! :%s/\s\+$//e
+        normal ``
+    endif
+endfunction
+autocmd BufWritePre * nested call RemoveTrailingSpace()
