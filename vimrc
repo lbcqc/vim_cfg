@@ -58,7 +58,7 @@ set background=dark
 colorscheme solarized
 
 " 显示行号
-set nu 
+set nu
 set nobackup
 
 " 距离底部保留5行
@@ -120,7 +120,7 @@ set formatoptions=tcrqn
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " 去掉滴滴声
-set noeb vb t_vb= 
+set noeb vb t_vb=
 
 " 高亮当前行
 nmap <silent> <leader>h :<C-u>let @/ = expand('<cword>')<cr>:set hls<cr>
@@ -160,12 +160,12 @@ set hlsearch
 set clipboard+=unnamed
 
 " 文件类型
-filetype plugin on 
+filetype plugin on
 
 " 记住浏览位置
-if has("autocmd")                                                          
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif                                                        
-endif 
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 """"""""""""""" 插件配置开始 """"""""""""""""""
 " 插件NerdTree
@@ -212,7 +212,7 @@ map fh <Plug>(easymotion-linebackward)
 let g:EasyMotion_smartcase = 1
 
 " go language
-let s:tlist_def_go_settings = 'go;g:enum;s:struct;u:union;t:type;' . 
+let s:tlist_def_go_settings = 'go;g:enum;s:struct;u:union;t:type;' .
             \ 'v:variable;f:function'
 
 " tagbar, 替换taglist, 增加对go语言的支持
@@ -245,7 +245,7 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
-"nerdcommenter 
+"nerdcommenter
 "add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " python 自动的会多加一个空格
@@ -353,7 +353,7 @@ if executable('rg')
 endif
 let g:ackhighlight = 1
 let g:ack_use_cword_for_empty_search = 1
-map <Leader>a :Ack!<Space> 
+map <Leader>a :Ack!<Space>
 
 " coc
 let g:coc_global_extensions = ['coc-tsserver','coc-html','coc-css', 'coc-json',
@@ -388,7 +388,7 @@ nmap <silent> gr <Plug>(coc-references)
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
- 
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -397,7 +397,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-" vim-gutentags 
+" vim-gutentags
 "function! InitPrjPath()
 "    let curdir=getcwd()
 "    while !filereadable(".root") && !isdirectory(".svn") && !isdirectory(".git") &&  !filereadable(".project")
@@ -449,7 +449,7 @@ let g:gutentags_plus_switch = 1
 autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
 autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 
-" cscope 
+" cscope
 set cscopetag " 使用cscope代替ctags
 set csto=0
 let g:Gtags_Close_When_Single = 1
@@ -502,7 +502,8 @@ let g:ale_linters = {
 "let g:ale_lint_on_enter = 0
 
 " Autoformat
-let g:formatdef_clangformat_google = '"clang-format -style google --sort-includes -"'
+"let g:formatdef_clangformat_google = '"clang-format -style google --sort-includes -"'
+let g:formatdef_clangformat_google = '"clang-format -style=file -"'
 let g:formatdef_astyle_kr = '"astyle --style=kr"'
 let g:formatdef_astyle_java = '"astyle --style=java"'
 
